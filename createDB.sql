@@ -53,7 +53,7 @@ REFERENCES carrier(carrierID);
 
 CREATE TABLE IF NOT EXISTS contain
 (
-    orderID VARCHAR(10),
+    orderID VARCHAR(10) PRIMARY KEY,
     productID VARCHAR(10) 
 );
 
