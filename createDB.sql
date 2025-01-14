@@ -1,4 +1,4 @@
--- Active: 1735295076676@@127.0.0.1@3306@dropshipsystem
+-- Active: 1735480258942@@127.0.0.1@3306@dropshippng
 CREATE DATABASE IF NOT EXISTS dropshipSystem;
 
 CREATE TABLE IF NOT EXISTS carrier
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS DropshipOrder
     transactionDate DATE NOT NULL,
     paymentMethod VARCHAR(25) NOT NULL,
     transactionStatus VARCHAR(25) NOT NULL,
-    customerID VARCHAR(10),
-    carrierID VARCHAR(10)
+    customerID VARCHAR(10) NOT NULL,
+    carrierID VARCHAR(10) NOT NULL
 );
 
 ALTER TABLE dropshiporder
@@ -54,7 +54,7 @@ REFERENCES carrier(carrierID);
 CREATE TABLE IF NOT EXISTS contain
 (
     orderID VARCHAR(10) PRIMARY KEY,
-    productID VARCHAR(10) 
+    productID VARCHAR(10) NOT NULL
 );
 
 ALTER TABLE contain
@@ -63,7 +63,7 @@ REFERENCES dropshiporder(orderID);
 
 ALTER TABLE contain
 ADD CONSTRAINT fk_productID FOREIGN KEY (productID)
-REFERENCES productID(productID);
+REFERENCES product(productID);
 
 Create TABLE IF NOT EXISTS Product(
     productID VARCHAR(10) PRIMARY KEY,
