@@ -64,3 +64,30 @@ REFERENCES dropshiporder(orderID);
 ALTER TABLE contain
 ADD CONSTRAINT fk_productID FOREIGN KEY (productID)
 REFERENCES productID(productID);
+
+Create TABLE IF NOT EXISTS Product(
+    productID VARCHAR(10) PRIMARY KEY,
+    productName VARCHAR(50) NOT NULL,
+    price FLOAT(8) NOT NULL,
+    quantity VARCHAR(50) NOT NULL,
+    supplierID VARCHAR(10)
+);
+ALTER TABLE Product
+ADD CONSTRAINT fk_supplier_id FOREIGN KEY(supplierID) REFERENCES supplier(supplierID);
+
+CREATE TABLE if NOT EXISTS Promotion(
+    productID VARCHAR(10) PRIMARY KEY,
+    discount FLOAT(8) NOT NULL,
+    discountedPrice FLOAT(8) NOT NULL
+);
+
+ALTER TABLE Promotion
+ADD CONSTRAINT fk_promotion_product_id Foreign KEY(productID) REFERENCES Product(productID);
+
+CREATE TABLE if NOT EXISTS NonPromotion (
+    productID VARCHAR(10) PRIMARY KEY
+);
+
+ALTER TABLE Nonpromotion
+ADD CONSTRAINT fk_nonpromotionproduct_id Foreign KEY(productID) REFERENCES Product(productID);
+

@@ -34,3 +34,34 @@ VALUES
 ('O008', '2025-01-08', '2025-01-12', 'Delivered', 500.00, 30.00, 40.00, 570.00, 'T008', '2025-01-08', 'PayPal', 'Completed'),
 ('O009', '2025-01-09', '2025-01-13', 'Cancelled', 0.00, 0.00, 0.00, 0.00, 'T009', '2025-01-09', 'Credit Card', 'Refunded'),
 ('O010', '2025-01-10', '2025-01-14', 'Shipped', 350.00, 22.00, 28.00, 400.00, 'T010', '2025-01-10', 'Debit Card', 'Completed');
+
+
+INSERT INTO product
+VALUES
+('P001', 'Chocolate Cake', 15.99, '10 pieces', 'S001'),
+('P002', 'Vanilla Ice Cream', 7.49, '5 liters', 'S002'),
+('P003', 'Strawberry Tart', 8.99, '8 pieces', 'S003'),
+('P004', 'Apple Pie', 12.99, '6 pieces', 'S004'),
+('P005', 'Cheesecake', 14.99, '4 pieces', 'S005'),
+('P006', 'Brownies', 9.99, '12 pieces', 'S006'),
+('P007', 'Macarons', 18.99, '20 pieces', 'S007'),
+('P008', 'Cupcakes', 11.99, '12 pieces', 'S008');
+
+
+
+INSERT INTO Promotion (productID, discount, discountedPrice) 
+VALUES
+('P001', 0.10, 15.99 * (1 - 0.10)), -- Chocolate Cake, 10% discount
+('P002', 0.15, 7.49 * (1 - 0.15)),  -- Vanilla Ice Cream, 15% discount
+('P003', 0.20, 8.99 * (1 - 0.20)),  -- Strawberry Tart, 20% discount
+('P004', 0.05, 12.99 * (1 - 0.05)), -- Apple Pie, 5% discount
+('P005', 0.25, 14.99 * (1 - 0.25)), -- Cheesecake, 25% discount
+('P006', 0.10, 9.99 * (1 - 0.10)),  -- Brownies, 10% discount
+('P008', 0.15, 11.99 * (1 - 0.15)); -- Cupcakes, 15% discount
+
+INSERT INTO Nonpromotion (productID) 
+VALUES
+('P007');
+
+
+
