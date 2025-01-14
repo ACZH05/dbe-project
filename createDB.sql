@@ -24,3 +24,43 @@ CREATE TABLE IF NOT EXISTS supplier
     contractEndDate DATE ,
     contractDurationInMonth INT 
 ) ;
+
+CREATE TABLE IF NOT EXISTS DropshipOrder
+(
+    orderID VARCHAR(10) PRIMARY KEY CHECK(orderID LIKE 'O___'),
+    orderDate DATE NOT NULL,
+    deliveryDate DATE NOT NULL,
+    orderstatus VARCHAR(25),
+    subtotal FLOAT(8) NOT NULL,
+    shippingFee FLOAT(8) NOT NULL,
+    taxAmount FLOAT(8) NOT NULL,
+    totalAmount FLOAT(8) NOT NULL,
+    transactionID VARCHAR(10) NOT NULL,
+    transactionDate DATE NOT NULL,
+    paymentMethod VARCHAR(25) NOT NULL,
+    transactionStatus VARCHAR(25) NOT NULL,
+    customerID VARCHAR(10),
+    carrierID VARCHAR(10)
+);
+
+ALTER TABLE dropshiporder
+ADD CONSTRAINT fk_customerID FOREIGN KEY (customerID)
+REFERENCES customer(customerID);
+
+ALTER TABLE dropshiporder
+ADD CONSTRAINT fk_carrierID FOREIGN KEY (carrierID)
+REFERENCES carrier(carrierID);
+
+CREATE TABLE IF NOT EXISTS contain
+(
+    orderID VARCHAR(10),
+    productID VARCHAR(10) 
+);
+
+ALTER TABLE contain
+ADD CONSTRAINT fk_orderID FOREIGN KEY (orderID)
+REFERENCES dropshiporder(orderID);
+
+ALTER TABLE contain
+ADD CONSTRAINT fk_productID FOREIGN KEY (productID)
+REFERENCES productID(productID);
