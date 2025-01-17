@@ -1,4 +1,28 @@
--- Active: 1735480258942@@127.0.0.1@3306@dropshipping
+-- Active: 1735295076676@@127.0.0.1@3306@dropshipsystem
+
+INSERT INTO Customer (customerID, firstName, lastName, contactNo, street, city, postcode) VALUES
+('CUS001', 'Ahmad', 'Iskandar', '60123456789', '12 Jalan Ampang', 'Kuala Lumpur', 50450),
+('CUS002', 'Siti', 'Rahimah', '60129876543', '45 Lorong Tun Razak', 'George Town', 10200),
+('CUS003', 'John', 'Tan', '60135678901', '78 Jalan Tunku Abdul Rahman', 'Johor Bahru', 80000),
+('CUS004', 'Nurul', 'Aisyah', '60146789012', '23 Persiaran Gurney', 'Ipoh', 31400),
+('CUS005', 'Daniel', 'Lim', '60151234567', '10 Jalan Bukit Bintang', 'Kuala Lumpur', 55100),
+('CUS006', 'Farah', 'Zainal', '60162345678', '25 Jalan Macalister', 'George Town', 10400),
+('CUS007', 'Kevin', 'Ng', '60173456789', '88 Jalan Wong Ah Fook', 'Johor Bahru', 80000),
+('CUS008', 'Aisha', 'Abdullah', '60184567890', '37 Jalan Sultan Iskandar', 'Ipoh', 30000);
+
+INSERT INTO basicCustomer VALUES
+('CUS001'),
+('CUS002'),
+('CUS005'),
+('CUS006');
+
+
+INSERT INTO premiumCustomer VALUES
+('CUS003', 19.99, 'Priority Support, Free Delivery'),
+('CUS004', 9.99, 'Exclusive Discounts, Early Access'),
+('CUS007', 19.99, 'VIP Events, Free Gifts'),
+('CUS008', 9.99, 'Cashback Rewards, Birthday Offers');
+
 INSERT INTO carrier
 VALUES
 ('C001' , 'Taylor' , 'Swift' , '0136715371' , 'taylor@gmail.com'),
@@ -12,7 +36,7 @@ VALUES
 ('C009' , 'Khalil' , 'Fong' , '0149823573' , 'khalil@gmail.com'),
 ('C010' , 'Yuuki' , 'Kawamura' , '0174829301' , 'yuuki@gmail.com') ;
 
-INSERT INTO supplier (supplierID, supplierName, contactName, contactNo, email, street, city, postcode, contractStartDate, contractEndDate, contractDurationInMonth)
+INSERT INTO supplier
 VALUES 
 ('S001', 'DinoMart', 'Hoe Zhi Wan', '0174829420', 'dinomart@gmail.com', 'Jalan Besar 13', 'Butter Worth', 12100, '2022-01-01', '2026-01-01' , TIMESTAMPDIFF(MONTH,'2022-01-01', '2026-01-01')),
 ('S002', '99Speedmart', 'Lee Thiam Wah', '0105000099', 'speedmart@gmail.com', 'Jalan Pulai Jaya 7', 'Skudai', 81310, '2024-07-01', '2026-07-01', TIMESTAMPDIFF(MONTH,'2024-07-01', '2026-07-01')),
@@ -23,7 +47,7 @@ VALUES
 ('S007', 'FireWoods', 'Akmal Anuar', '0179899246', 'firewood@gmail.com', 'Jalan Kiambang 11', 'Kulai', 81000, '2022-01-01', '2026-01-01', TIMESTAMPDIFF(MONTH,'2022-01-01', '2026-01-01')),
 ('S008', 'AeonBig', 'Tsugutoshi Seko', '075208700', 'aeonbig@gmail.com', 'Jalan Tebrau 5', 'Desa Tebrau', 81100, '2026-01-01', '2030-01-01', TIMESTAMPDIFF(MONTH,'2026-01-01', '2030-01-01'));
 
-INSERT INTO DropshipOrder (orderID, orderDate, deliveryDate, orderstatus, subtotal, shippingFee, taxAmount, totalAmount, transactionID, transactionDate, paymentMethod, transactionStatus, customerID, carrierID)
+INSERT INTO DropshipOrder
 VALUES
 ('O001', '2025-01-01', '2025-01-05', 'Shipped', 100.00, 10.00, 8.00, 118.00, 'T001', '2025-01-01', 'Credit Card', 'Completed','CUS001','C001'),
 ('O002', '2025-01-02', '2025-01-06', 'Processing', 200.00, 15.00, 16.00, 231.00, 'T002', '2025-01-02', 'PayPal', 'Pending','CUS002','C002'),

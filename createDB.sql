@@ -1,5 +1,27 @@
--- Active: 1735480258942@@127.0.0.1@3306@dropshippng
+-- Active: 1735295076676@@127.0.0.1@3306@dropshipsystem
 CREATE DATABASE IF NOT EXISTS dropshipSystem;
+
+CREATE TABLE IF NOT EXISTS Customer (
+    customerID VARCHAR(10) PRIMARY KEY CHECK(customerID LIKE 'CUS___'),
+    firstName VARCHAR(30) NOT NULL,
+    lastName VARCHAR(30) NOT NULL,
+    contactNo VARCHAR(11) NOT NULL,
+    street VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    postcode INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS basicCustomer (
+    customerID VARCHAR(10) PRIMARY KEY CHECK(customerID LIKE 'CUS___'),
+    FOREIGN KEY (customerID) REFERENCES Customer(customerID)
+);
+
+CREATE TABLE IF NOT EXISTS premiumCustomer (
+    customerID VARCHAR(10) PRIMARY KEY CHECK(customerID LIKE 'CUS___'),
+    subscriptionFee FLOAT(8) NOT NULL,
+    benefits VARCHAR(50) NOT NULL,
+    FOREIGN KEY (customerID) REFERENCES Customer(customerID)
+);
 
 CREATE TABLE IF NOT EXISTS carrier
 (
